@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Digital JURAGAN MOD</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
+      background: url('https://img1.pixhost.to/images/7021/619277202_skyzo.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll;
+      color: #f5f5f5;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(0, 0, 0, 0.4);
+      color: #00ffff;
+      padding: 0.5rem 0;
+      font-weight: bold;
+      font-size: 0.95rem;
+      box-shadow: inset 0 0 10px #00ffff;
+    }
+
+    .marquee span {
+      display: inline-block;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #00ffe5;
+      text-shadow: 0 0 10px #00ffe5, 0 0 25px #00ffe5;
+      animation: floatGlow 3s ease-in-out infinite;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px rgba(108, 0, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.5s forwards;
+      will-change: transform, opacity;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #00ffff;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(270deg, #00ffff, #6c00ff, #00ffff);
+      background-size: 600% 600%;
+      animation: gradientMove 4s ease infinite;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #6c00ff;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffff, 0 0 30px #6c00ff;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .country-list button {
+      margin: 6px;
+      padding: 10px 14px;
+      background: #00ffe5;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      background: crimson;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 480px) {
+      .card h2 { font-size: 1.1rem; }
+      .card p { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee">
+    <span>🔥 PROMO HARI INI: Semua produk diskon 10%! Order via WA atau Telegram sekarang sebelum kehabisan! 🔥</span>
+  </div>
+
+  <header>
+    <h1>JURAGAN MOD</h1>
+    <p>Store Digital Sultan Style - Harga Merakyat!</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>NOKOS All Negara</h2>
+      <p>Harga: 5k - 20k</p>
+      <button class="btn" onclick="showModal()">Beli Sekarang</button>
+    </div>
+    <div class="card">
+      <h2>Panel Pterodactyl</h2>
+      <p>Harga: 1k - 5k</p>
+      <button class="btn" onclick="showPanelModal()">Beli Sekarang</button>
+    </div>
+    <div class="card">
+      <h2>Admin Panel</h2>
+      <p>Harga: 10k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau beli Admin Panel" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="card">
+      <h2>Reseller Panel</h2>
+      <p>Harga: 5k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau beli Reseller Panel" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="card">
+      <h2>Owner Panel</h2>
+      <p>Harga: 20k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau beli Owner Panel" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="card">
+      <h2>JASA INSTALL PANEL</h2>
+      <p>Harga: 5k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau order JASA INSTALL PANEL" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="card">
+      <h2>JASA BIKIN WEB STORE</h2>
+      <p>Harga: 8k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau order JASA BIKIN WEB STORE" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="card">
+      <h2>JASA WEB PAYMENT</h2>
+      <p>Harga: 4k</p>
+      <a class="btn" href="https://wa.me/6283830330486?text=Halo kak, saya mau order JASA WEB PAYMENT" target="_blank">Beli Sekarang</a>
+    </div>
+  </div>
+
+  <div style="text-align: center; font-size: 0.95rem; color: #ffaaaa; padding: 0 1rem; margin-top: -1rem;">
+    <p>❗ Kalau WhatsApp tidak respon dalam 1x24 jam, berarti kenon.<br>Silakan langsung hubungi via Telegram.</p>
+  </div>
+
+  <div style="text-align: center; padding: 2rem;">
+    <a href="https://t.me/Juraganmuda238" target="_blank" class="btn" style="background: #0088cc;">
+      💬 Hubungi via Telegram
+    </a>
+  </div>
+
+  <!-- Modal Negara -->
+  <div id="countryModal" class="modal">
+    <div class="modal-content">
+      <h3>Pilih Negara:</h3>
+      <div class="country-list">
+        <button onclick="buyNokos('Indonesia')">Indonesia</button>
+        <button onclick="buyNokos('Malaysia')">Malaysia</button>
+        <button onclick="buyNokos('India')">India</button>
+        <button onclick="buyNokos('USA')">USA</button>
+        <button onclick="buyNokos('Vietnam')">Vietnam</button>
+        <button onclick="buyNokos('Thailand')">Thailand</button>
+      </div>
+      <button class="close-btn" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- Modal Panel -->
+  <div id="panelModal" class="modal">
+    <div class="modal-content">
+      <h3>Pilih Paket Panel Pterodactyl:</h3>
+      <div class="country-list">
+        <button onclick="buyPanel('3GB - 1K')">3GB - 1K</button>
+        <button onclick="buyPanel('6GB - 2K')">6GB - 2K</button>
+        <button onclick="buyPanel('8GB - 3K')">8GB - 3K</button>
+        <button onclick="buyPanel('10GB - 4K')">10GB - 4K</button>
+        <button onclick="buyPanel('UNLI - 5K')">UNLI - 5K</button>
+      </div>
+      <button class="close-btn" onclick="closePanelModal()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- Sound -->
+  <audio id="introSound" autoplay onended="this.remove();" style="display: none;">
+    <source src="gihun_sound.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+  <script>
+    function showModal() {
+      document.getElementById("countryModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("countryModal").style.display = "none";
+    }
+
+    function buyNokos(negara) {
+      const url = `https://wa.me/6283830330486?text=${encodeURIComponent('Halo kak, saya mau beli NOKOS negara ' + negara)}`;
+      window.open(url, "_blank");
+      closeModal();
+    }
+
+    function showPanelModal() {
+      document.getElementById("panelModal").style.display = "block";
+    }
+
+    function closePanelModal() {
+      document.getElementById("panelModal").style.display = "none";
+    }
+
+    function buyPanel(paket) {
+      const url = `https://wa.me/6283830330486?text=${encodeURIComponent('Halo kak, saya mau beli Panel Pterodactyl paket ' + paket)}`;
+      window.open(url, "_blank");
+      closePanelModal();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById("introSound");
+      if (audio) audio.volume = 0.7;
+
+      const clickSound = document.getElementById("clickSound");
+      document.querySelectorAll('.btn, .country-list button, .close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
